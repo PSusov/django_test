@@ -25,9 +25,11 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '2xzx27lj**6nk099&g4w$2)4vnu)be
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
-DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+DEBUG = False
+#DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
-ALLOWED_HOSTS = ['77.72.136.158']
+#ALLOWED_HOSTS = ['77.72.136.158']
+ALLOWED_HOSTS = ['*',]
 
 LOGIN_REDIRECT_URL = '/'
 # Application definition
@@ -130,9 +132,9 @@ USE_TZ = True
 STATICFILES_DIRS = (
      os.path.join(BASE_DIR, 'static'),
 )
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'django_test/staticfiles')
 
-STATIC_URL = '/static/'
+STATIC_URL = '/staticfiles/'
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
