@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block title %} <title>Контракт</title> {% endblock %}
+
+{% block content %}
+<h2>Клиент {{ contract.client }}</h2>
+<table class="table">
+<tr><td>E-mail</td><td>{{ contract.email }}</td></tr>
+<tr><td>Тип контракта</td><td>{{ contract.contracttype }}</td></tr>
+<tr><td>Тип платежа</td><td>{{ contract.paystype }}</td></tr>
+<tr><td>Возможное превышение расходов</td><td>{{ contract.max_expense }}</td></tr>
+<tr><td>Описание</td><td>{{ contract.description }}</td></tr>
+<tr><td>Остаток</td><td>{{ contract.sum_at_date }}</td></tr>
+<tr><td>на дату</td><td>{{ contract.date }}</td></tr>
+<tr><td>Дополнительные услуги на сумму</td><td>{{ contract.adv_fac }}</td></tr>
+<tr><td>E-pay аккаунт</td><td>{{ contract.epay }}</td></tr>
+<tr><td>Комментарий</td><td>{{ contract.comment }}</td></tr>
+</table>
+<hr>
+<div style="margin-left: 20px; margin-top: 20px">
+    <h4>Услуги по контракту:</h4>
+    {% for acc in contract.contracttarif_set.all %}
+    <p><b>Тариф </b><a href='{{ acc.get_absolute_url }}'> {{ acc.description }}<br>
+    {% endfor %}
+</div>
+{% endblock %}

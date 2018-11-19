@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Информация о подсети</title>
+{% endblock %}
+{% block content %}
+<h1>Тариф {{ network.tarif }}</h1>
+<p><b>Точка обсчета</b> {{ network.calculate_point }}</p>
+<p><b>Из сети</b> {{ network.from_net }}</p>
+<p><b>На сеть</b> {{ network.to_net }}</p>
+<p><b>Из интерфейса</b> {{ network.from_int }}</p>
+<p><b>На интерфейс</b> {{ network.to_int }}</p>
+<p><b>Описание</b> {{ network.description }}</p>
+<p><b>Комментарий</b> {{ network.comment }}</p>
+<hr>
+{% endblock %}

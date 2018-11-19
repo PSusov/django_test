@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  {% block title %}<title>Stat</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <!-- Добавление дополнительного статического CSS файла -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+	<ul class="sidebar-nav">
+	{% if user.is_authenticated %}
+	<li>Вы вошли как <b>{{ user.get_username }}</b></li>
+	<li><a href="{% url 'my_clients' %}">My clients</a></li>
+	<li><a href="{% url 'logout' %}?next={{ request.path }}">Выход</a></li>
+	{% else %}
+	<li><a href="{% url 'login' %}?next={{request.path}}">Вход</a></li>
+	{% endif %}
+	</ul>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+      {% block sidebar %}
+      <ul class="sidebar-nav">
+          <li><a href="{% url 'index' %}">Главная</a></li>
+          <li><a href="{% url 'facilities' %}">Тарифы</a></li>
+          <li><a href="{% url 'services' %}">Услуги</a></li>
+      </ul>
+     {% endblock %}
+      </div>
+      <div class="col-sm-10 ">
+      {% block content %}{% endblock %}
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

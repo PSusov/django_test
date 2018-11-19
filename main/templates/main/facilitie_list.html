@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Facilitie List</h1>
+
+    {% if facilitie_list %}
+    <ul>
+
+      {% for fac in facilitie_list %}
+      <li>
+        <a href="{{ fac.get_absolute_url }}">{{ fac.description }}</a> ({{fac.cost}})
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>Facilities table is empty.</p>
+    {% endif %}
+    {% if perms.main.can_add_fac %}
+    <a href="{% url 'facilities' %}create">Add facilitie</a>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Информация о клиенте</title>
+{% endblock %}
+{% block content %}
+<h1>Договор {{ contracttarif.contract }}</h1>
+<p><b>Описание </b> {{ contracttarif.description }}</p>
+<p><b>Комментарий </b> {{ contracttarif.comment }}</p>
+<p><b>Тариф </b> {{ contracttarif.fid }}</p>
+<p><b>Скидка </b> {{ contracttarif.sale }}</p>
+<p><b>Начало действия тарифа </b> {{ contracttarif.start }}</p>
+<p><b>Окончание действия тарифа </b> {{ contracttarif.stop }}</p>
+
+<hr>
+<div style="margin-left: 20px; margin-top: 20px">
+    <h4>Сети:</h4>
+    {% for acc in contracttarif.network_set.all %}
+    <p><a href='{{ acc.get_absolute_url }}'> {{ acc.to_net }}<br>
+    {% endfor %}
+</div>
+{% endblock %}

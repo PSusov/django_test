@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>My clients:</h1>
+
+    {% if client_list %}
+    <ul>
+
+      {% for cli in client_list %} 
+        <a href="{{cli.get_absolute_url}}">{{cli.description}}</a><br>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>Клиенты отсутствуют.</p>
+    {% endif %}       
+    {% if perms.client.can_disable_cli %}
+    <p> user {{ user.get_username }} might set disable</p>
+    {% endif %}
+{% endblock %}

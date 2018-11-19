@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Информация о клиенте</title>
+{% endblock %}
+{% block content %}
+<h1>Клиент {{ client.description }}</h1>
+<p><b>Контакты:</b> {{ client.contacts }}</p>
+<p><b>Комментарий:</b> {{ client.comment }}</p>
+<hr>
+<div style="margin-left: 20px; margin-top: 20px">
+    <h4>Контракты:</h4>
+    {% for acc in client.contract_set.all %}
+    <p><b>Login:</b><a href='{{ acc.get_absolute_url }}'> {{ acc.description }}<br>
+    {% endfor %}
+    {% if perms.main.can_edit_cli %}
+    <br>
+    <a href="{{ client.get_absolute_url }}/editcli">Редактировать</a>
+    {% endif %}
+</div>
+{% endblock %}

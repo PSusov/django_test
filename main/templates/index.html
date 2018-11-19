@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+{% block title %} <title>Главная</title> {% endblock %}
+
+{% block content %}
+<small>Number of visits - {{ num_visits }}</small>
+<h2>Выделенные линии</h2>
+
+  <ul>
+    {% for cli in num_cli %}
+    <li><strong><a href="{{ cli.get_absolute_url }}">{{ cli }}</a></strong>
+    {% if perms.main.can_full_view %}
+    ({{cli.creator}})
+    {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

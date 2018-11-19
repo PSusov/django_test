@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Информация об услуге</title>
+{% endblock %}
+{% block content %}
+
+<table class="table table-bordered table-sm">
+<tr><td>Код</td><td>{{ service.code }}</td></tr>
+<tr><td>Описание</td><td>{{ service.description }}</td></tr>
+<tr><td>Тип сервиса</td><td>{{ service.typeserv }}</td></tr>
+<tr><td>Цена</td><td>{{ service.cost }}</td></tr>
+<tr><td>Комментарии</td><td>{{ service.comment }}</td></tr>
+</table>
+<br>
+{% if perms.main.can_update_service %}
+<a href="{{ service.get_absolute_url }}/update">update</a>
+{% endif %}
+<br>
+{% if perms.main.can_remove_service %}
+<a href="{{ service.get_absolute_url }}/delete">delete</a>
+{% endif %}
+
+{% endblock %}

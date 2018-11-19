@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Service List</h1>
+
+    {% if service_list %}
+    <ul>
+
+      {% for serv in service_list %}
+      <li>
+        <a href="{{ serv.get_absolute_url }}">{{ serv.description }}</a> ({{serv.cost}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Service list is empty.</p>
+    {% endif %}
+    {% if perms.main.can_service_work %}
+    <a href="{% url 'services' %}create">Create service</a>
+    {% endif %}
+{% endblock %}

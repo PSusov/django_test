@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Информация о клиенте</title>
+{% endblock %}
+{% block content %}
+
+<table class="table table-bordered table-sm">
+<tr><td>Описание</td><td>{{ facilitie.description }}</td></tr>
+<tr><td>Стоимость</td><td>{{ facilitie.cost }}</td></tr>
+<tr><td>Скорость (Мбит/с)</td><td>{{ facilitie.bwi }}</td></tr>
+<tr><td>Траффик (Мбайт)</td><td>{{ facilitie.mbyte }}</td></tr>
+<tr><td>Транспорт</td><td>{{ facilitie.transport }}</td></tr>
+<tr><td>Направление</td><td>{{ facilitie.vector }}</td></tr>
+<tr><td>Множитель</td><td>{{ facilitie.mul }}</td></tr>
+<tr><td>Комментарии</td><td>{{ facilitie.comment }}</td></tr>
+</table>
+{% if perms.main.can_upd_fac %}
+<br>
+<a href="{{ facilitie.get_absolute_url }}/update">Update</a>
+{% endif %}
+{% if perms.main.can_del_fac%}
+<br>
+<a href="{{ facilitie.get_absolute_url }}/delete">Delete</a>
+{% endif %}
+
+{% endblock %}
