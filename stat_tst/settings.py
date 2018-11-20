@@ -46,7 +46,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+#    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -129,11 +129,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATICFILES_DIRS = (
-     os.path.join(BASE_DIR, 'static'),
-)
+#STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+#)
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
-STATIC_ROOT = '/django_test/staticfiles/'
+#STATIC_ROOT = '/django_test/staticfiles/'
 
 STATIC_URL = '/staticfiles/'
 
@@ -142,4 +142,4 @@ import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+S#TATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
