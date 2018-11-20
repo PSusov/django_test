@@ -133,7 +133,7 @@ STATICFILES_DIRS = (
      os.path.join(BASE_DIR, 'static'),
 )
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles')
-STATIC_ROOT = '/staticfiles/'
+STATIC_ROOT = '/django_test/staticfiles/'
 
 STATIC_URL = '/staticfiles/'
 
