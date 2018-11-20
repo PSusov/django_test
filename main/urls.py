@@ -1,5 +1,7 @@
 from django.conf.urls import url
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf import settings
 
 from . import views
 urlpatterns = [
@@ -25,4 +27,4 @@ urlpatterns += [
     url(r'^facilities/create/$', views.FacilitieCreate.as_view(), name='facilitie_create'),
     url(r'^facilities/(?P<pk>\d+)/update/$', views.FacilitieUpdate.as_view(), name='facilitie_update'),
     url(r'^facilities/(?P<pk>\d+)/delete/$', views.FacilitieDelete.as_view(), name='facilitie_delete'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
