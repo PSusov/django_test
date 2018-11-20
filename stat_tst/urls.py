@@ -31,3 +31,5 @@ urlpatterns += [
     url(r'^$', RedirectView.as_view(url='/main/', permanent=True)),
     url(r'^accounts/', include('django.contrib.auth.urls')),
 ]
+
+#urlpatterns += staticfiles_urlpatterns()
