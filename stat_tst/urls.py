@@ -32,4 +32,7 @@ urlpatterns += [
     url(r'^accounts/', include('django.contrib.auth.urls')),
 ]
 
-#urlpatterns += staticfiles_urlpatterns()
+#from django.conf import settings
+#from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+#if settings.DEBUG:
+#    urlpatterns += staticfiles_urlpatterns()
