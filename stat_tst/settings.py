@@ -29,7 +29,7 @@ DEBUG = False
 #DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 #ALLOWED_HOSTS = ['77.72.136.158']
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['polar-ridge-56684.herokuapp.com', '127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/'
 # Application definition
